@@ -6,6 +6,12 @@ def create_database():
     """
     - Creates and connects to the sparkifydb
     - Returns the connection and cursor to sparkifydb
+    
+    Parameters:
+    None
+    
+    Returns:
+    connection and cursor to sparkifydb
     """
     
     # connect to default database
@@ -30,6 +36,13 @@ def create_database():
 def drop_tables(cur, conn):
     """
     Drops each table using the queries in `drop_table_queries` list.
+    
+    Parameters:
+    - cur: cursor variable for postgres cursor
+    - conn: connection variable for postgres connection
+    
+    Returns:
+    None
     """
     for query in drop_table_queries:
         cur.execute(query)
@@ -38,7 +51,14 @@ def drop_tables(cur, conn):
 
 def create_tables(cur, conn):
     """
-    Creates each table using the queries in `create_table_queries` list. 
+    Creates each table using the queries in `create_table_queries` list.
+    
+    Parameters:
+    - cur: cursor variable for postgres cursor
+    - conn: connection variable for postgres connection
+    
+    Returns:
+    None
     """
     for query in create_table_queries:
         cur.execute(query)
@@ -57,6 +77,12 @@ def main():
     - Creates all tables needed. 
     
     - Finally, closes the connection. 
+    
+    Parameters:
+    None
+    
+    Returns:
+    None
     """
     cur, conn = create_database()
     
